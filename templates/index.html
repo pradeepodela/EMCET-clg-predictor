@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAMCET College Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        max-width: 500px;
+        width: 100%;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin: 10px 0 5px;
+    }
+    input, select, button {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        background: #5c6bc0;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #3949ab;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>EAMCET College Predictor</h1>
+        <form id="predict-form" action="/predict" method="POST">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phonenumber">Phonenumber *</label>
+            <input type="number" id="phonenumber" name="phonenumber" required>
+
+            <label for="hall">EAMCET Hall Ticket Number *</label>
+            <input  id="hall" name="hall" required>
+
+            <label for="rank">EAMCET Rank *</label>
+            <input type="number" id="rank" name="rank" required>
+            
+            <label for="gender">Gender *</label>
+            <select id="gender" name="gender" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+
+
+
+
+            
+            
+            <label for="caste">Caste *</label>
+            <select id="caste" name="caste" required>
+                <option value="OC \nBOYS">OC BOYS</option>
+                <option value="OC \nGIRLS">OC GIRLS</option>
+                <option value="BC_A \nBOYS">BC-A BOYS</option>
+                <option value="BC_A \nGIRLS">BC-A GIRLS</option>
+                <option value="BC_B \nBOYS">BC-B BOYS</option>
+                <option value="BC_B \nGIRLS">BC-B GIRLS</option>
+                <option value="BC_C \nBOYS">BC-C BOYS</option>
+                <option value="BC_C \nGIRLS">BC-C GIRLS</option>
+                <option value="BC_D \nBOYS">BC-D BOYS</option>
+                <option value="BC_D \nGIRLS">BC-D GIRLS</option>
+                <option value="BC_E \nBOYS">BC-E BOYS</option>
+                <option value="BC_E \nGIRLS">BC-E GIRLS</option>
+                <option value="SC \nBOYS">SC BOYS</option>
+                <option value="SC \nGIRLS">SC GIRLS</option>
+                <option value="ST \nBOYS">ST BOYS</option>
+                <option value="ST \nGIRLS">ST GIRLS</option>
+            </select>
+            
+            <label for="branch">Branch</label>
+            <select id="branch" name="branch">
+                <option value="COMPUTER SCIENCE AND ENGINEERING">COMPUTER SCIENCE AND ENGINEERING</option>
+                <option value="COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)">COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)</option>
+                <option value="ELECTRONICS AND COMMUNICATION ENGINEERING">ELECTRONICS AND COMMUNICATION ENGINEERING</option>
+                <option value="ELECTRICAL AND ELECTRONICS ENGINEERING">ELECTRICAL AND ELECTRONICS ENGINEERING</option>
+                <option value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</option>
+                <option value="ARTIFICIAL INTELLIGENCE AND DATA SCIENCE">ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</option>
+                <option value="ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING">ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING</option>
+                <option value="CIVIL ENGINEERING">CIVIL ENGINEERING</option>
+                <option value="COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)">COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)</option>
+                <option value="COMPUTER SCIENCE AND ENGINEERING (IOT)">COMPUTER SCIENCE AND ENGINEERING (IOT)</option>
+                <option value="INFORMATION TECHNOLOGY">INFORMATION TECHNOLOGY</option>
+                <option value="MINING ENGINEERING">MINING ENGINEERING</option>
+                <option value="COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)">COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)</option>
+                <option value="COMPUTER ENGINEERING(SOFTWARE ENGINEERING)">COMPUTER ENGINEERING(SOFTWARE ENGINEERING)</option>
+                <option value="BIO-MEDICAL ENGINEERING">BIO-MEDICAL ENGINEERING</option>
+                <option value="CHEMICAL ENGINEERING">CHEMICAL ENGINEERING</option>
+                <option value="COMPUTER SCIENCE AND BUSINESS SYSTEM">COMPUTER SCIENCE AND BUSINESS SYSTEM</option>
+                <option value="PHARMACEUTICAL ENGINEERING">PHARMACEUTICAL ENGINEERING</option>
+                <option value="AGRICULTURAL ENGINEERING">AGRICULTURAL ENGINEERING</option>
+                <option value="BIO-TECHNOLOGY">BIO-TECHNOLOGY</option>
+                <option value="CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY)">CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY)</option>
+                <option value="DAIRYING">DAIRYING</option>
+                <option value="FOOD TECHNOLOGY">FOOD TECHNOLOGY</option>
+                <option value="COMPUTER SCIENCE & DESIGN">COMPUTER SCIENCE & DESIGN</option>
+                <option value="COMPUTER SCIENCE AND INFORMATION TECHNOLOGY">COMPUTER SCIENCE AND INFORMATION TECHNOLOGY</option>
+                <option value="ELECTRONICS AND INSTRUMENTATION ENGINEERING">ELECTRONICS AND INSTRUMENTATION ENGINEERING</option>
+                <option value="ARTIFICIAL INTELLIGENCE">ARTIFICIAL INTELLIGENCE</option>
+                <option value="COMPUTER SCIENCE">COMPUTER SCIENCE</option>
+                <option value="ELECTRONICS AND TELEMATICS">ELECTRONICS AND TELEMATICS</option>
+                <option value="COMPUTER SCIENCE AND ENGG (ARTIFICIAL INTELLIGENCE)">COMPUTER SCIENCE AND ENGG (ARTIFICIAL INTELLIGENCE)</option>
+                <option value="AERONAUTICAL ENGINEERING">AERONAUTICAL ENGINEERING</option>
+                <option value="ELECTRONICS AND COMPUTER ENGINEERING">ELECTRONICS AND COMPUTER ENGINEERING</option>
+                <option value="DIGITAL TECHNIQUES FOR DESIGN AND PLANNING">DIGITAL TECHNIQUES FOR DESIGN AND PLANNING</option>
+                <option value="GEO INFORMATICS">GEO INFORMATICS</option>
+                <option value="METALLURGICAL ENGINEERING">METALLURGICAL ENGINEERING</option>
+                <option value="BTECH MECHANICAL WITH MTECH MANUFACTURING  SYSTEMS">BTECH MECHANICAL WITH MTECH MANUFACTURING  SYSTEMS</option>
+                <option value="BTECH MECHANICAL WITH MTECH THERMAL ENGG">BTECH MECHANICAL WITH MTECH THERMAL ENGG</option>
+                <option value="TEXTILE ENGINEERING">TEXTILE ENGINEERING</option>
+                <option value="COMPUTER SCIENCE & ENGINEERING (NETWORKS)">COMPUTER SCIENCE & ENGINEERING (NETWORKS)</option>
+                <option value="ELECTRONICS COMMUNICATION AND INSTRUMENTATION ENGINEERING">ELECTRONICS COMMUNICATION AND INSTRUMENTATION ENGINEERING</option>
+                <option value="COMPUTER ENGINEERING">COMPUTER ENGINEERING</option>
+                <option value="MECHANICAL (MECHTRONICS) ENGINEERING">MECHANICAL (MECHTRONICS) ENGINEERING</option>
+                <option value="METALLURGY AND MATERIAL ENGINEERING">METALLURGY AND MATERIAL ENGINEERING</option>
+                <option value="TEXTILE TECHNOLOGY">TEXTILE TECHNOLOGY</option>
+                <option value="TEXTILE TECHNOLOGY / TEXTILE ENGINEERING">TEXTILE TECHNOLOGY / TEXTILE ENGINEERING</option>
+                <option value="AUTOMOBILE ENGINEERING">AUTOMOBILE ENGINEERING</option>
+                <option value="ALL">ALL BRANCHES</option>
+
+                <!-- ['COMPUTER SCIENCE AND ENGINEERING',
+       'COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)',
+       'ELECTRONICS AND COMMUNICATION ENGINEERING',
+       'ELECTRICAL AND ELECTRONICS ENGINEERING', 'MECHANICAL ENGINEERING',
+       'ARTIFICIAL INTELLIGENCE AND DATA SCIENCE',
+       'ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING',
+       'CIVIL ENGINEERING',
+       'COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)',
+       'COMPUTER SCIENCE AND ENGINEERING (IOT)', 'INFORMATION TECHNOLOGY',
+       'MINING ENGINEERING',
+       'COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)',
+       'COMPUTER ENGINEERING(SOFTWARE ENGINEERING)',
+       'BIO-MEDICAL ENGINEERING', 'CHEMICAL ENGINEERING',
+       'COMPUTER SCIENCE AND BUSINESS SYSTEM',
+       'PHARMACEUTICAL ENGINEERING', 'AGRICULTURAL ENGINEERING',
+       'BIO-TECHNOLOGY',
+       'CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY)',
+       'DAIRYING', 'FOOD TECHNOLOGY', 'COMPUTER SCIENCE & DESIGN',
+       'COMPUTER SCIENCE AND INFORMATION TECHNOLOGY ',
+       'ELECTRONICS AND INSTRUMENTATION ENGINEERING',
+       'ARTIFICIAL INTELLIGENCE', 'COMPUTER SCIENCE',
+       'ELECTRONICS AND TELEMATICS',
+       'COMPUTER SCIENCE AND ENGG (ARTIFICIAL INTELLIGENCE)',
+       'AERONAUTICAL ENGINEERING', 'ELECTRONICS AND COMPUTER ENGINEERING',
+       'DIGITAL TECHNIQUES FOR DESIGN AND PLANNING', 'GEO INFORMATICS',
+       'METALLURGICAL ENGINEERING',
+       'BTECH MECHANICAL WITH MTECH MANUFACTURING  SYSTEMS',
+       'BTECH MECHANICAL WITH MTECH THERMAL ENGG', 'TEXTILE ENGINEERING',
+       'COMPUTER SCIENCE & ENGINEERING (NETWORKS)',
+       'ELECTRONICS COMMUNICATION AND INSTRUMENTATION ENGINEERING',
+       'COMPUTER ENGINEERING', 'MECHANICAL (MECHTRONICS) ENGINEERING',
+       'METALLURGY AND MATERIAL ENGINEERING', 'TEXTILE TECHNOLOGY',
+       'TEXTILE TECHNOLOGY / TEXTILE ENGINEERING',
+       'AUTOMOBILE ENGINEERING'] -->
+                 
+
+
+                <!-- Add other branches here -->
+            </select>
+            
+            <button type="submit">Show data</button>
+        </form>
+    </div>
+</body>
+</html>

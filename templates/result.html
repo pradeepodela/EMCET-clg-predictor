@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table, th, td {
+             border: 1px solid black;
+        }
+        table {
+            width:80%;
+            border-collapse: collapse;
+        }
+        td {
+            text-align: center
+        }
+        th:first-child, td:first-child {
+            text-align: left
+        }
+        th:last-child, td:last-child {
+            text-align: right
+        }
+        </style>
+        <table>
+                <tr>
+                    <th>Inst\n Code</th>
+                    <th>Institute Name</th>
+                    <th>Place</th>
+                    <th>Dist \nCode</th>
+                    <th>Co Education</th>
+                    <th>College Type</th>
+                    <th>Year of Estab</th>
+                    <th>Branch Code</th>
+                    <th>Branch Name</th>
+                    <th>OC \nBOYS</th>
+                    <th>OC \nGIRLS</th>
+                    <th>BC-A \nBOYS</th>
+                    <th>BC-A \nGIRLS</th>
+                    <th>BC-B \nBOYS</th>
+                    <th>BC-B \nGIRLS</th>
+                    <th>BC-C \nBOYS</th>
+                    <th>BC-C \nGIRLS</th>
+                    <th>BC-D \nBOYS</th>
+                    <th>BC-D \nGIRLS</th>
+                    <th>BC-E \nBOYS</th>
+                    <th>BC-E \nGIRLS</th>
+                    <th>SC \nBOYS</th>
+                    <th>SC \nGIRLS</th>
+                    <th>ST \nBOYS</th>
+                    <th>ST \nGIRLS</th>
+                    <th>EWS \nGEN OU</th>
+                    <th>EWS \nGIRLS OU</th>
+                    <th>Tuition Fee</th>
+                    <th>Affiliated To</th>
+                   
+
+
+                    
+                </tr>
+    
+        {% for row in table_data %}
+    
+                <tr>
+                    <td>{{ row['Inst\n Code'] }}</td> 
+                    <td>{{ row['Institute Name'] }}</td>
+                    <td>{{ row['Place'] }}</td>
+                    <td>{{ row['Dist \nCode'] }}</td>
+                    <td>{{ row['Co Education'] }}</td>
+                    <td>{{ row['College Type'] }}</td>
+                    <td>{{ row['Year of Estab'] }}</td>
+                    <td>{{ row['Branch Code'] }}</td>
+                    <td>{{ row['Branch Name'] }}</td>
+                    <td>{{ row['OC \nBOYS'] }}</td>
+                    <td>{{ row['OC \nGIRLS'] }}</td>
+                    <td>{{ row['BC_A \nBOYS'] }}</td>
+                    <td>{{ row['BC_A \nGIRLS'] }}</td>
+                    <td>{{ row['BC_B \nBOYS'] }}</td>
+                    <td>{{ row['BC_B \nGIRLS'] }}</td>
+                    <td>{{ row['BC_C \nBOYS'] }}</td>
+                    <td>{{ row['BC_C \nGIRLS'] }}</td>
+                    <td>{{ row['BC_D \nBOYS'] }}</td>
+                    <td>{{ row['BC_D \nGIRLS'] }}</td>
+                    <td>{{ row['BC_E \nBOYS'] }}</td>
+                    <td>{{ row['BC_E \nGIRLS'] }}</td>
+                    <td>{{ row['SC \nBOYS'] }}</td>
+                    <td>{{ row['SC \nGIRLS'] }}</td>
+                    <td>{{ row['ST \nBOYS'] }}</td>
+                    <td>{{ row['ST \nGIRLS'] }}</td>
+                    <td>{{ row['EWS \nGEN OU'] }}</td>
+                    <td>{{ row['EWS \nGIRLS OU'] }}</td>
+                    <td>{{ row['Tuition Fee'] }}</td>
+                    <td>{{ row['Affiliated To'] }}</td>
+                   
+                    <!-- <tb><a href="https://tseamcet.nic.in/institute_details.aspx?iCode={{row['Inst\n Code']}}" target="_blank" rel="noopener noreferrer">View Details</a></tb> -->
+
+                    
+                </tr>
+        {% endfor %}
+        </table>
+</body>
+</html>
